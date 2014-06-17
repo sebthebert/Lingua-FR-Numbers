@@ -95,7 +95,7 @@ sub number_to_fr {
         push @fr_string, number_to_fr( int $number ), $OUTPUT_DECIMAL_DELIMITER;
 
         # XXX
-        if ( $decimal =~ s/^(0+)// ) {
+		if ( $decimal =~ s/^(0+([1-9][0-9]*))$/$2/ ) {
             my $decimal_power = 10**length $1;
             last unless $decimal_power;
             my $fr_decimal;
